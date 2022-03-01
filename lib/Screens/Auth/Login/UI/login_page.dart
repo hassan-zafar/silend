@@ -7,6 +7,9 @@ import 'package:silend/Components/entry_field.dart';
 import 'package:silend/Components/show_loading.dart';
 import 'package:silend/Theme/colors.dart';
 
+import '../../../../DatabaseMethods/auth_methods.dart';
+import '../../Registration/UI/register_page.dart';
+
 
 class LoginPage extends StatelessWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -128,7 +131,7 @@ class _LoginBodyState extends State<LoginBody> {
                       onTap: () {
                       //   Navigator.pushNamed(
                       //       context, PageRoutes.bottomNavigation);
-                      // }
+                      }
                       ),
                   CustomTextButtonIntr(
                       text: 'Google',

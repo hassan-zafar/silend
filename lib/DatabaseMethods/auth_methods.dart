@@ -1,12 +1,13 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
-import 'package:shifftie/Constants/collections.dart';
-import 'package:shifftie/Constants/constants.dart';
-import 'package:shifftie/DatabaseMethods/local_database.dart';
-import 'package:shifftie/DatabaseMethods/user_api.dart';
-import 'package:shifftie/Models/users.dart';
-import 'package:shifftie/utilities/custom_toast.dart';
+import 'package:silend/Constants/collections.dart';
+import 'package:silend/Constants/constants.dart';
+import 'package:silend/DatabaseMethods/user_api.dart';
+import 'package:silend/Models/users.dart';
+
+import '../Components/custom_toast.dart';
+import 'local_database.dart';
 
 class AuthMethod {
   static final FirebaseAuth _auth = FirebaseAuth.instance;

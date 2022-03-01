@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../Theme/colors.dart';
 import '../Theme/constants.dart';
 
+// ignore: must_be_immutable
 class CustomTextButtonIntr extends StatefulWidget {
   CustomTextButtonIntr(
       {required this.onTap,

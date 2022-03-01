@@ -5,6 +5,8 @@ import 'package:silend/Components/custom_button.dart';
 import 'package:silend/Components/custom_text_button.dart';
 import 'package:silend/Components/custom_toast.dart';
 import 'package:silend/Components/show_loading.dart';
+import 'package:silend/DatabaseMethods/auth_methods.dart';
+import 'package:silend/DatabaseMethods/user_api.dart';
 import 'package:silend/Models/users.dart';
 import 'package:silend/Theme/colors.dart';
 
