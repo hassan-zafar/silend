@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:silend/Theme/colors.dart';
 import 'package:silend/Theme/constants.dart';
 
-
 // ignore: must_be_immutable
 class CustomTextButton extends StatelessWidget {
   CustomTextButton(
@@ -13,7 +12,6 @@ class CustomTextButton extends StatelessWidget {
       this.text2,
       this.enableMargin = true,
       this.textAlign,
-      this.borderRadius,
       this.fontSize = 20,
       this.paddingVert,
       this.isdropDown = false,
@@ -25,7 +23,6 @@ class CustomTextButton extends StatelessWidget {
   final double? paddingVert;
   final double fontSize;
   final double? paddingHor;
-  final borderRadius;
   final TextAlign? textAlign;
   bool isdropDown;
   final bool enableMargin;
@@ -36,9 +33,8 @@ class CustomTextButton extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        margin: enableMargin
-            ? EdgeInsets.symmetric(vertical: padding / 2)
-            : null,
+        margin:
+            enableMargin ? EdgeInsets.symmetric(vertical: padding / 2) : null,
         padding: EdgeInsets.symmetric(
           vertical: paddingVert ?? padding,
           horizontal: paddingHor ?? padding * 3,
@@ -51,9 +47,7 @@ class CustomTextButton extends StatelessWidget {
                   begin: Alignment.topLeft,
                   end: Alignment.bottomRight)
               : null,
-          borderRadius: enableMargin
-              ? BorderRadius.circular(borderRadius)
-              : borderRadius,
+          borderRadius: enableMargin ? borderRadius : borderRadius,
         ),
         child: isdropDown
             ? Row(
