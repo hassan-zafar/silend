@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "107974015592",
+    "project_id": "ardent-bridge-279615",
+    "storage_bucket": "ardent-bridge-279615.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:107974015592:android:fe7b6c88a2e736cb70d9dd",
+        "android_client_info": {
+          "package_name": "com.hassan.silend"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "107974015592-n2misn7jn21cvh5lrf061q0hv4ng5oqo.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.hassan.silend",
+            "certificate_hash": "d3984de38e8552e8a961dbb0688d5693105fc273"
+          }
+        },
+        {
+          "client_id": "107974015592-5v5djb3o54elutp3enok2q77qkqt0p03.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC8R6LxdRjJO8foJEZG3U7meOE7Ao_x6dY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "107974015592-5v5djb3o54elutp3enok2q77qkqt0p03.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
