@@ -14,54 +14,54 @@ class WelcomescreenWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // Figma Flutter Generator WelcomescreenWidget - FRAME
-    return Scaffold(
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          Stack(
-            alignment: Alignment.bottomCenter,
-            children: [
-              Image.asset('assets/splash_screen_ppl.png'),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: CustomTextButton(
-                      onTap: () {
-                        Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => const LoginPage(),
-                        ));
-                      },
-                      text: 'Login',
-                      isGradient: true,
+    return SafeArea(
+      child: Scaffold(
+        body: Stack(
+          alignment: Alignment.bottomCenter,
+          children: [
+            Image.asset(
+              'assets/splash_screen_ppl.png',
+              fit: BoxFit.cover,
+              height: MediaQuery.of(context).size.height,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: CustomTextButton(
+                    onTap: () {
+                      Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => const LoginPage(),
+                      ));
+                    },
+                    text: 'Login',
+                    isGradient: true,
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: MyOutlinedButton(
+                    onPressed: () {
+                      Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => RegisterPage(),
+                      ));
+                      // Navigator.of(context).push(MaterialPageRoute(
+                      //   builder: (context) => const HomeNewUserFollowPage(),
+                      // ));
+                    },
+                    gradient:
+                        LinearGradient(colors: [btnGradLeft, btnGradRight]),
+                    child: Text(
+                      'Sign Up',
+                      style: TextStyle(color: btnGradLeft, fontSize: 20),
                     ),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: MyOutlinedButton(
-                      onPressed: () {
-                        Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => RegisterPage(),
-                        ));
-                        // Navigator.of(context).push(MaterialPageRoute(
-                        //   builder: (context) => const HomeNewUserFollowPage(),
-                        // ));
-                      },
-                      gradient:
-                          LinearGradient(colors: [btnGradLeft, btnGradRight]),
-                      child: Text(
-                        'Sign Up',
-                        style: TextStyle(color: btnGradLeft, fontSize: 20),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ],
-          ),
-        ],
+                ),
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }
