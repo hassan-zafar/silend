@@ -25,11 +25,15 @@ class _TransactionsHistoryPageState extends State<TransactionsHistoryPage> {
                     children: [
                       Container(
                           decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(12),
-                              color: Colors.red),
+                            borderRadius: BorderRadius.circular(12),
+                            gradient: const LinearGradient(
+                                colors: [Color(0xffF2EFF6), Color(0xffE9E7E9)]),
+                          ),
                           padding: const EdgeInsets.all(12),
                           child: const Icon(
-                              Icons.account_balance_wallet_outlined)),
+                            Icons.account_balance_wallet_outlined,
+                            size: 20,
+                          )),
                       Column(
                         children: const [
                           Text('My Wallet'),
@@ -74,24 +78,51 @@ class _TransactionsHistoryPageState extends State<TransactionsHistoryPage> {
                   Container(
                     padding: const EdgeInsets.all(30),
                     decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(20),
-                        color: Colors.red),
+                      borderRadius: BorderRadius.circular(20),
+                      gradient: LinearGradient(colors: [
+                        Color(0xffF2EFF6),
+                        Colors.lightBlueAccent.shade100
+                      ], begin: Alignment.topLeft),
+                    ),
                     child: Row(
                       children: [
-                        const Icon(Icons.keyboard_arrow_up_outlined),
-                        const Text('Income')
+                        Container(
+                            padding: EdgeInsets.all(16),
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(20),
+                                color: Colors.lightBlue),
+                            child:
+                                const Icon(Icons.keyboard_arrow_up_outlined)),
+                        Column(
+                          children: [Text('Income'), Text('\$580.5')],
+                        )
                       ],
                     ),
                   ),
                   Container(
                     padding: const EdgeInsets.all(30),
                     decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(20),
-                        color: Colors.red),
+                      borderRadius: BorderRadius.circular(20),
+                      gradient: LinearGradient(colors: [
+                        Color(0xffF2EFF6),
+                        Colors.redAccent.shade100
+                      ], begin: Alignment.topLeft),
+                    ),
                     child: Row(
-                      children: const [
-                        Icon(Icons.keyboard_arrow_down_sharp),
-                        Text('Spend')
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Container(
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(20),
+                                color: Colors.red),
+                            padding: EdgeInsets.all(16),
+                            child: Icon(Icons.keyboard_arrow_down_sharp)),
+                        Column(
+                          children: [
+                            Text('Spend'),
+                            Text('\$80.5'),
+                          ],
+                        )
                       ],
                     ),
                   ),

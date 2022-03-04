@@ -5,11 +5,11 @@ import 'package:silend/Components/custom_text_button.dart';
 import 'package:silend/Components/custom_toast.dart';
 import 'package:silend/Components/entry_field.dart';
 import 'package:silend/Components/show_loading.dart';
+import 'package:silend/Screens/transactions_screens.dart';
 import 'package:silend/Theme/colors.dart';
 
 import '../../../../DatabaseMethods/auth_methods.dart';
 import '../../Registration/UI/register_page.dart';
-
 
 class LoginPage extends StatelessWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -129,10 +129,9 @@ class _LoginBodyState extends State<LoginBody> {
                       isGradient: false,
                       color: const Color(0xff1E81C9),
                       onTap: () {
-                      //   Navigator.pushNamed(
-                      //       context, PageRoutes.bottomNavigation);
-                      }
-                      ),
+                        //   Navigator.pushNamed(
+                        //       context, PageRoutes.bottomNavigation);
+                      }),
                   CustomTextButtonIntr(
                       text: 'Google',
                       width: 140,
@@ -142,10 +141,9 @@ class _LoginBodyState extends State<LoginBody> {
                         final bool _login =
                             await AuthMethod().signinWithGoogle();
                         if (_login) {
-                          // Navigator.of(context).pushNamedAndRemoveUntil(
-                          //   PageRoutes.bottomNavigation,
-                          //   (Route<dynamic> route) => false,
-                          // );
+                          Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => TransactionsHistoryPage(),
+                          ));
                         } else {
                           Navigator.of(context).pop();
                         }
