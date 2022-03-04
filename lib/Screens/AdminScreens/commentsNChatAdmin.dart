@@ -1,14 +1,14 @@
-import 'package:bot_toast/bot_toast.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:meditation_alive/consts/collections.dart';
-import 'package:meditation_alive/consts/consants.dart';
-import 'package:meditation_alive/models/users.dart';
-import 'package:meditation_alive/services/notificationHandler.dart';
-import 'package:meditation_alive/widgets/loadingWidget.dart';
+import 'package:silend/Components/custom_toast.dart';
 // import 'package:timeago/timeago.dart' as timeago;
 import 'package:uuid/uuid.dart';
+
+import '../../Components/show_loading.dart';
+import '../../Constants/collections.dart';
+import '../../Constants/constants.dart';
+import '../../Models/users.dart';
 
 class CommentsNChatAdmin extends StatefulWidget {
   // final String? postId;
@@ -151,15 +151,15 @@ class CommentsNChatAdminState extends State<CommentsNChatAdmin> {
       //     "mediaUrl": postMediaUrl,
       //     "timestamp": timestamp,
       //   });
-      sendAndRetrieveMessage(
-          token: widget.chatNotificationToken!,
-          message: _commentNMessagesController.text,
-          title: "Admin_Chats",
-          context: context);
+      // sendAndRetrieveMessage(
+      //     token: widget.chatNotificationToken!,
+      //     message: _commentNMessagesController.text,
+      //     title: "Admin_Chats",
+      //     context: context);
       // }
 
     } else {
-      BotToast.showText(text: "Message field shouldn't be left Empty");
+      CustomToast.errorToast(message: "Message field shouldn't be left Empty");
     }
     _commentNMessagesController.clear();
   }

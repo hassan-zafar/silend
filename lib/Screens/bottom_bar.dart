@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:silend/Screens/request_payment.dart';
 import 'package:silend/Screens/transactions_screens.dart';
+
+import 'AdminScreens/allUsers.dart';
+import 'AdminScreens/chatLists.dart';
 
 class BottomBarScreen extends StatefulWidget {
   static const routeName = '/BottomBarScreen';
@@ -16,10 +20,9 @@ class _BottomBarScreenState extends State<BottomBarScreen> {
   void initState() {
     pages = [
       TransactionsHistoryPage(),
-      UserInfoScreen(),
+      RequestPaymentPage(),
       UserNSearch(),
       ChatLists(),
-      UploadProductForm(),
     ];
     //
     super.initState();
@@ -71,7 +74,7 @@ class _BottomBarScreenState extends State<BottomBarScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final themeChange = Provider.of<DarkThemeProvider>(context);
+    // final themeChange = Provider.of<DarkThemeProvider>(context);
 
     return Scaffold(
       body: pages[_selectedPageIndex], //_pages[_selectedPageIndex]['page'],
@@ -114,7 +117,7 @@ class _BottomBarScreenState extends State<BottomBarScreen> {
                 //     label: 'My Favourites'),
                 BottomNavigationBarItem(
                     icon: Icon(
-                      MyAppIcons.user,
+                      Icons.person,
                     ),
                     label: 'My Profile'),
                 BottomNavigationBarItem(
