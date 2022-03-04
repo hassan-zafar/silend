@@ -22,6 +22,7 @@ dependencies:
   get_storage:
   firebase_storage:
   google_sign_in:
+  provider:
   firebase_messaging:
   flutter_local_notifications:
   firebase_core: 
