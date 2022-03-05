@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:silend/Screens/home_page.dart';
 import 'package:silend/Screens/request_payment.dart';
 import 'package:silend/Screens/transactions_screens.dart';
 import 'package:silend/Screens/user_info.dart';
@@ -23,6 +24,7 @@ class _BottomBarScreenState extends State<BottomBarScreen> {
   @override
   void initState() {
     pages = [
+      HomePage(),
       const TransactionsHistoryPage(),
       const RequestPaymentPage(),
       UserInfoScreen(),

@@ -5,6 +5,7 @@ import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:provider/provider.dart';
 import 'package:silend/Screens/request_payment.dart';
 import 'package:silend/Screens/welcome.dart';
+import 'package:silend/Services/user_state.dart';
 import 'Providers/dark_theme_provider.dart';
 import 'Providers/notification_preferences.dart';
 import 'Theme/theme_data.dart';
@@ -104,7 +105,7 @@ class _MyAppState extends State<MyApp> {
                 theme: Styles.themeData(themeChangeProvider.darkTheme, context),
                 home:
                     //  const RequestPaymentPage()
-                    const WelcomescreenWidget(),
+                    UserState(),
               ),
             ),
           );

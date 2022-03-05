@@ -1,11 +1,36 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:introduction_screen/introduction_screen.dart';
 import 'package:silend/Screens/bottom_bar.dart';
 import 'package:silend/Screens/welcome.dart';
 
 import '../DatabaseMethods/database.dart';
 
 class UserState extends StatelessWidget {
+  List<PageViewModel> listPagesViewModel = [
+    PageViewModel(
+      title: "Hello",
+      body:
+          "A new way to pay it forward. Give Anonymously Receive to pay it forward. Give Anonymously Receive Silently.A new way to pay it forward. Give Anonymously Receive Silently. A new way to pay it forward. Give Anonymously Receive Silently.",
+      image: Center(
+        child: Image.asset("assets/images/brittblack120.png", height: 175.0),
+      ),
+    ),
+    PageViewModel(
+      title: 'asd',
+      body:
+          "A new way to pay it forward. Give Anonymously Receive to pay it forward. Give Anonymously Receive Silently.A new way to pay it forward. Give Anonymously Receive Silently. A new way to pay it forward. Give Anonymously Receive Silently.",
+      image: Center(
+        child: Image.asset("assets/images/Layer 2.1.png", height: 175.0),
+      ),
+    ),
+    PageViewModel(
+      title: 'Solution',
+      image: Center(
+        child: Image.asset("assets/images/Layer 2.0.png", height: 175.0),
+      ),
+    )
+  ];
   @override
   Widget build(BuildContext context) {
     return StreamBuilder(
@@ -32,7 +57,24 @@ class UserState extends StatelessWidget {
               print('The user didn\'t login yet');
               return
                   // IntroductionAuthScreen();
-                  WelcomescreenWidget();
+                  IntroductionScreen(
+                pages: listPagesViewModel,
+                showSkipButton: true,
+                skip: const Text("Skip"),
+                done: const Text("Done",
+                    style: TextStyle(fontWeight: FontWeight.w600)),
+                onDone: () {
+                  Navigator.of(context).pushReplacement(MaterialPageRoute(
+                    builder: (context) => WelcomescreenWidget(),
+                  ));
+                },
+                baseBtnStyle: TextButton.styleFrom(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(25.0),
+                  ),
+                ),
+                skipStyle: TextButton.styleFrom(primary: Colors.red),
+              );
             }
           } else if (userSnapshot.hasError) {
             return Center(
