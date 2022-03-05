@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:silend/Screens/request_payment.dart';
 import 'package:silend/Screens/transactions_screens.dart';
+import 'package:silend/Screens/user_info.dart';
+import 'package:silend/Services/user_state.dart';
 
+import '../Providers/dark_theme_provider.dart';
 import 'AdminScreens/allUsers.dart';
 import 'AdminScreens/chatLists.dart';
 
@@ -19,8 +23,9 @@ class _BottomBarScreenState extends State<BottomBarScreen> {
   @override
   void initState() {
     pages = [
-      TransactionsHistoryPage(),
-      RequestPaymentPage(),
+      const TransactionsHistoryPage(),
+      const RequestPaymentPage(),
+      UserInfoScreen(),
       UserNSearch(),
       ChatLists(),
     ];
@@ -33,36 +38,6 @@ class _BottomBarScreenState extends State<BottomBarScreen> {
     // getData();
   }
 
-  // void getData() async {
-  //   User user = _auth.currentUser!;
-  //   _uid = user.uid;
-
-  //   print('user.displayName ${user.displayName}');
-  //   print('user.photoURL ${user.photoURL}');
-  //   DocumentSnapshot<Map<String, dynamic>>? userDoc = user.isAnonymous
-  //       ? null
-  //       : await FirebaseFirestore.instance.collection('users').doc(_uid).get();
-  //   // .then((value) {
-  //   // if (user.isAnonymous) {
-  //   //   userDoc = null;
-  //   // } else {
-  //   //   userDoc = value;
-  //   // }
-  //   // });
-  //   if (userDoc == null) {
-  //     return;
-  //   } else {
-  //     setState(() {
-  //       _name = userDoc.get('name');
-  //       _email = user.email!;
-  //       _joinedAt = userDoc.get('joinedAt');
-  //       _phoneNumber = userDoc.get('phoneNumber');
-  //       _userImageUrl = userDoc.get('imageUrl');
-  //     });
-  //   }
-  //   // print("name $_name");
-  // }
-
   int _selectedPageIndex = 0;
   late List pages;
 
@@ -74,19 +49,19 @@ class _BottomBarScreenState extends State<BottomBarScreen> {
 
   @override
   Widget build(BuildContext context) {
-    // final themeChange = Provider.of<DarkThemeProvider>(context);
+    final themeChange = Provider.of<DarkThemeProvider>(context);
 
     return Scaffold(
       body: pages[_selectedPageIndex], //_pages[_selectedPageIndex]['page'],
       bottomNavigationBar: BottomAppBar(
         // color: Colors.white,
-        shape: CircularNotchedRectangle(),
+        shape: const CircularNotchedRectangle(),
         notchMargin: 0.01,
         clipBehavior: Clip.antiAlias,
         child: Container(
           height: kBottomNavigationBarHeight * 0.98,
           child: Container(
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               color: Colors.white,
               border: Border(
                 top: BorderSide(
@@ -98,23 +73,16 @@ class _BottomBarScreenState extends State<BottomBarScreen> {
             child: BottomNavigationBar(
               onTap: _selectPage,
               backgroundColor: Theme.of(context).primaryColor,
-              unselectedItemColor: Colors.white,
-              selectedItemColor: Color(0xff805130),
+              unselectedItemColor: Colors.black,
+              selectedItemColor: const Color(0xff805130),
               currentIndex: _selectedPageIndex,
               // selectedLabelStyle: TextStyle(fontSize: 16),
-              items: [
+              items: const [
                 BottomNavigationBarItem(
-                    icon: Icon(Icons.room_service), label: 'For You'),
-                // BottomNavigationBarItem(
-                //     icon: Icon(
-                //       MyAppIcons.search,
-                //     ),
-                //     label: 'Search'),
-                // BottomNavigationBarItem(
-                //     icon: Icon(
-                //       MyAppIcons.wishlist,
-                //     ),
-                //     label: 'My Favourites'),
+                    icon: Icon(Icons.area_chart_outlined),
+                    label: 'Transactions'),
+                BottomNavigationBarItem(
+                    icon: Icon(Icons.room_service), label: 'Fund Requests'),
                 BottomNavigationBarItem(
                     icon: Icon(
                       Icons.person,
@@ -130,8 +98,6 @@ class _BottomBarScreenState extends State<BottomBarScreen> {
                       Icons.chat_bubble,
                     ),
                     label: 'Admin Chats'),
-                BottomNavigationBarItem(
-                    icon: Icon(Icons.upload_file), label: 'Upload Post'),
               ],
             ),
           ),
@@ -177,7 +143,7 @@ class _BottomBarScreenState extends State<BottomBarScreen> {
           backgroundColor: Colors.purple,
           heroTag: "btn1",
           onPressed: () {},
-          child: Icon(Icons.camera_alt_outlined),
+          child: const Icon(Icons.camera_alt_outlined),
         ),
       ),
     );

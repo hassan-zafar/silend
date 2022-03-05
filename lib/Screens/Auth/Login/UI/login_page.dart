@@ -5,6 +5,7 @@ import 'package:silend/Components/custom_text_button.dart';
 import 'package:silend/Components/custom_toast.dart';
 import 'package:silend/Components/entry_field.dart';
 import 'package:silend/Components/show_loading.dart';
+import 'package:silend/Screens/bottom_bar.dart';
 import 'package:silend/Screens/transactions_screens.dart';
 import 'package:silend/Theme/colors.dart';
 
@@ -142,7 +143,7 @@ class _LoginBodyState extends State<LoginBody> {
                             await AuthMethod().signinWithGoogle();
                         if (_login) {
                           Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) => TransactionsHistoryPage(),
+                            builder: (context) => BottomBarScreen(),
                           ));
                         } else {
                           Navigator.of(context).pop();

@@ -156,7 +156,6 @@ class _UserNSearchState extends State<UserNSearch>
                                             });
                                           },
                                           child: Container(
-                                          
                                             child: Padding(
                                               padding:
                                                   const EdgeInsets.all(8.0),
@@ -186,7 +185,6 @@ class _UserNSearchState extends State<UserNSearch>
                                             });
                                           },
                                           child: Container(
-                                
                                             child: Padding(
                                               padding:
                                                   const EdgeInsets.all(8.0),
@@ -258,7 +256,6 @@ class UserResult extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.all(8.0),
               child: Container(
-         
                 child: ListTile(
                   leading: CircleAvatar(
                     backgroundColor: Colors.grey,

@@ -91,6 +91,7 @@ class AuthMethod {
           }
           return true;
         } catch (error) {
+          print(error.toString());
           CustomToast.errorToast(message: error.toString());
         }
       }
