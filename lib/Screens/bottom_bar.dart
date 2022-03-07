@@ -54,54 +54,59 @@ class _BottomBarScreenState extends State<BottomBarScreen> {
   Widget build(BuildContext context) {
     final themeChange = Provider.of<DarkThemeProvider>(context);
 
-    return Scaffold(
-      body: pages[_selectedPageIndex], //_pages[_selectedPageIndex]['page'],
-      bottomNavigationBar: BottomAppBar(
-        // color: Colors.white,
-        shape: const CircularNotchedRectangle(),
-        notchMargin: 0.01,
-        clipBehavior: Clip.antiAlias,
-        child: Container(
-          height: kBottomNavigationBarHeight * 0.98,
+    return Container(
+      decoration: BoxDecoration(
+          gradient: LinearGradient(colors: [Colors.lightBlue, Colors.white])),
+      child: Scaffold(
+        backgroundColor: Colors.transparent,
+        body: pages[_selectedPageIndex], //_pages[_selectedPageIndex]['page'],
+        bottomNavigationBar: BottomAppBar(
+          // color: Colors.white,
+          shape: const CircularNotchedRectangle(),
+          notchMargin: 0.01,
+          clipBehavior: Clip.antiAlias,
           child: Container(
-            decoration: const BoxDecoration(
-              color: Colors.white,
-              border: Border(
-                top: BorderSide(
-                  color: Colors.grey,
-                  width: 0.5,
+            height: kBottomNavigationBarHeight * 0.98,
+            child: Container(
+              decoration: const BoxDecoration(
+                color: Colors.white,
+                border: Border(
+                  top: BorderSide(
+                    color: Colors.grey,
+                    width: 0.5,
+                  ),
                 ),
               ),
-            ),
-            child: BottomNavigationBar(
-              onTap: _selectPage,
-              backgroundColor: Theme.of(context).primaryColor,
-              unselectedItemColor: Colors.black,
-              selectedItemColor: const Color(0xff805130),
-              currentIndex: _selectedPageIndex,
-              // selectedLabelStyle: TextStyle(fontSize: 16),
-              items: const [
-                BottomNavigationBarItem(
-                    icon: Icon(Icons.area_chart_outlined),
-                    label: 'Transactions'),
-                BottomNavigationBarItem(
-                    icon: Icon(Icons.room_service), label: 'Fund Requests'),
-                BottomNavigationBarItem(
-                    icon: Icon(
-                      Icons.person,
-                    ),
-                    label: 'My Profile'),
-                BottomNavigationBarItem(
-                    icon: Icon(
-                      Icons.people,
-                    ),
-                    label: 'All Users'),
-                BottomNavigationBarItem(
-                    icon: Icon(
-                      Icons.chat_bubble,
-                    ),
-                    label: 'Admin Chats'),
-              ],
+              child: BottomNavigationBar(
+                onTap: _selectPage,
+                backgroundColor: Theme.of(context).primaryColor,
+                unselectedItemColor: Colors.black,
+                selectedItemColor: const Color(0xff805130),
+                currentIndex: _selectedPageIndex,
+                // selectedLabelStyle: TextStyle(fontSize: 16),
+                items: const [
+                  BottomNavigationBarItem(
+                      icon: Icon(Icons.area_chart_outlined),
+                      label: 'Transactions'),
+                  BottomNavigationBarItem(
+                      icon: Icon(Icons.room_service), label: 'Fund Requests'),
+                  BottomNavigationBarItem(
+                      icon: Icon(
+                        Icons.person,
+                      ),
+                      label: 'My Profile'),
+                  BottomNavigationBarItem(
+                      icon: Icon(
+                        Icons.people,
+                      ),
+                      label: 'All Users'),
+                  BottomNavigationBarItem(
+                      icon: Icon(
+                        Icons.chat_bubble,
+                      ),
+                      label: 'Admin Chats'),
+                ],
+              ),
             ),
           ),
         ),

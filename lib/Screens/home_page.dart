@@ -1,6 +1,9 @@
+import 'dart:collection';
+
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:silend/Constants/constants.dart';
 import 'package:silend/Theme/constants.dart';
 
@@ -12,10 +15,41 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  final Set<Marker> _markers = HashSet<Marker>();
+  late BitmapDescriptor _markerIcon;
+  // void _setMarkerIcon() async {
+  //   _markerIcon = await BitmapDescriptor.fromAssetImage(
+  //        ImageConfiguration(), customFoodMarkerIcon);
+  // }
+  late GoogleMapController mapController;
+  void onMapCreated(controller) {
+    setState(() {
+      mapController = controller;
+      setState(() {
+        _markers.add(
+          Marker(
+              markerId: const MarkerId("0"),
+              position: const LatLng(51.517450, -0.226575),
+              icon: _markerIcon
+              // infoWindow: InfoWindow(
+              //   title: widget.restaurantDetails.restaurantName,
+              //   snippet: widget.restaurantDetails.restaurantAddress,
+              // ),
+              ),
+        );
+      });
+    });
+  }
+
+  void initState() {
+    super.initState();
+    // _setMarkerIcon();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
           gradient: LinearGradient(colors: [Colors.lightBlue, Colors.white])),
       child: Scaffold(
           backgroundColor: Colors.transparent,
@@ -28,7 +62,7 @@ class _HomePageState extends State<HomePage> {
                   style: titleTextStyle(context: context),
                 ),
               ),
-              (Neumorphic(
+              Neumorphic(
                 style: NeumorphicStyle(
                   shape: NeumorphicShape.concave,
                   boxShape:
@@ -40,47 +74,23 @@ class _HomePageState extends State<HomePage> {
                 // shape: RoundedRectangleBorder(
                 //     borderRadius: BorderRadius.circular(20)),
                 child: Padding(
-                  padding: const EdgeInsets.all(24.0),
-                  child: Column(
-                    children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            'UserName',
-                            style: titleTextStyle(context: context),
-                          ),
-                          Row(
-                            children: const [
-                              Text('Amount Requested:'),
-                              Text('\$65')
-                            ],
-                          ),
-                        ],
+                  padding: const EdgeInsets.all(12.0),
+                  child: SizedBox(
+                    width: MediaQuery.of(context).size.width - 30,
+                    height: 200,
+                    child: GoogleMap(
+                      onMapCreated: onMapCreated,
+                      initialCameraPosition: const CameraPosition(
+                        target: LatLng(51.517450, -0.226575),
+                        zoom: 15,
                       ),
-                      Image.asset(
-                        'assets/info_screen.jpeg',
-                        fit: BoxFit.fill,
-                        width: double.infinity,
-                        height: 180,
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            'Category',
-                            style: titleTextStyle(context: context),
-                          ),
-                          Text(
-                            'Needy',
-                            style: titleTextStyle(context: context),
-                          ),
-                        ],
-                      )
-                    ],
+                      buildingsEnabled: false,
+                      mapToolbarEnabled: false,
+                      markers: _markers,
+                    ),
                   ),
                 ),
-              )),
+              ),
               Card(
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(20)),

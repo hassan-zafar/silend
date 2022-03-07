@@ -12,7 +12,7 @@ class _TransactionsHistoryPageState extends State<TransactionsHistoryPage> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: Scaffold(
+      child: Scaffold(backgroundColor: Colors.transparent,
         body: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [

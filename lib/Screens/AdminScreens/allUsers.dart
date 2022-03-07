@@ -97,6 +97,7 @@ class _UserNSearchState extends State<UserNSearch>
     super.build(context);
     return SafeArea(
       child: Scaffold(
+        backgroundColor: Colors.transparent,
         appBar: buildSearchField(context),
         body:
             searchResultsFuture == null ? buildAllUsers() : buildSearchResult(),

@@ -303,7 +303,7 @@ class _UploadRequestScreenState extends State<UploadRequestScreen> {
                             //controller: this._controller,
                             maxLines: 10,
                             textCapitalization: TextCapitalization.sentences,
-                            decoration: InputDecoration(
+                            decoration: const InputDecoration(
                               //  counterText: charLength.toString(),
                               labelText: 'Description',
                               hintText: 'Audio description',
