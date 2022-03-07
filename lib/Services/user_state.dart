@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:introduction_screen/introduction_screen.dart';
+import 'package:silend/Screens/auth%20copy/login.dart';
 import 'package:silend/Screens/bottom_bar.dart';
 import 'package:silend/Screens/welcome.dart';
 
@@ -9,8 +10,13 @@ import '../DatabaseMethods/database.dart';
 class UserState extends StatelessWidget {
   List<PageViewModel> listPagesViewModel = [
     PageViewModel(
-        // decoration: PageDecoration(
-        // ),
+        decoration: PageDecoration(
+            boxDecoration: BoxDecoration(
+          gradient: LinearGradient(
+              colors: [Colors.blue, Colors.white],
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight),
+        )),
         title: "Hello",
         body:
             "A new way to pay it forward. Give Anonymously Receive to pay it forward. Give Anonymously Receive Silently.A new way to pay it forward. Give Anonymously Receive Silently. A new way to pay it forward. Give Anonymously Receive Silently.",
@@ -19,7 +25,13 @@ class UserState extends StatelessWidget {
         ),
         reverse: true),
     PageViewModel(
-      // decoration: PageDecoration(pageColor: Colors.grey),
+      decoration: PageDecoration(
+          boxDecoration: BoxDecoration(
+        gradient: LinearGradient(
+            colors: [Colors.blue, Colors.white],
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight),
+      )),
       title: '',
       reverse: true,
       body:
@@ -30,9 +42,15 @@ class UserState extends StatelessWidget {
     ),
     PageViewModel(
         title: 'Solution',
-        // decoration: PageDecoration(pageColor: Colors.grey),
+        decoration: PageDecoration(
+            boxDecoration: BoxDecoration(
+          gradient: LinearGradient(
+              colors: [Colors.blue, Colors.white],
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight),
+        )),
         image: Center(
-          child: Image.asset("assets/images/Layer 2.0.png", height: 175.0),
+          child: Image.asset("assets/images/Layer 2.0.png", height: 275.0),
         ),
         reverse: true,
         body: 'We have found the solution')
@@ -65,14 +83,14 @@ class UserState extends StatelessWidget {
                   // IntroductionAuthScreen();
                   IntroductionScreen(
                 pages: listPagesViewModel,
-                globalBackgroundColor: Colors.blueGrey,
+                globalBackgroundColor: Colors.black,
                 showSkipButton: true,
                 skip: const Text("Skip"),
                 done: const Text("Done",
                     style: TextStyle(fontWeight: FontWeight.w600)),
                 onDone: () {
                   Navigator.of(context).pushReplacement(MaterialPageRoute(
-                    builder: (context) => WelcomescreenWidget(),
+                    builder: (context) => LoginScreen(),
                   ));
                 },
                 showNextButton: false,

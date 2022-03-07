@@ -33,7 +33,7 @@ dependencies:
   introduction_screen: ^3.0.0
   flutter_neumorphic: ^3.0.3
   glassmorphism: ^3.0.0
-
+  image_picker:
   # geolocator:
   # geocoding:
   google_maps_flutter:
