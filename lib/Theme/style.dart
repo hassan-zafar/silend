@@ -14,6 +14,7 @@ final ThemeData appTheme = ThemeData.light().copyWith(
     color: transparentColor,
     elevation: 0.0,
   ),
+  dividerColor: Colors.black,
 
   ///text theme
   textTheme: GoogleFonts.openSansTextTheme().copyWith(

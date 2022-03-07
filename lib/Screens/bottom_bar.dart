@@ -55,8 +55,12 @@ class _BottomBarScreenState extends State<BottomBarScreen> {
     final themeChange = Provider.of<DarkThemeProvider>(context);
 
     return Container(
-      decoration: BoxDecoration(
-          gradient: LinearGradient(colors: [Colors.lightBlue, Colors.white])),
+      decoration: const BoxDecoration(
+        gradient: LinearGradient(
+            colors: [Colors.blue, Colors.white],
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight),
+      ),
       child: Scaffold(
         backgroundColor: Colors.transparent,
         body: pages[_selectedPageIndex], //_pages[_selectedPageIndex]['page'],

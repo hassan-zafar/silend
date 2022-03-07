@@ -9,6 +9,6 @@ TextStyle titleTextStyle(
   return TextStyle(
       fontSize: fontSize,
       fontWeight: FontWeight.w600,
-      color: Theme.of(context).textTheme.bodyText1!.color,
+      color: color,
       letterSpacing: 1.8);
 }

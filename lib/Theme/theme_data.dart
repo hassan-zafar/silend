@@ -14,10 +14,12 @@ import 'package:flutter/material.dart'
 class Styles {
   static ThemeData themeData(bool isDarkTheme, BuildContext context) {
     return ThemeData(
+      shadowColor: Colors.black,
       scaffoldBackgroundColor:
           isDarkTheme ? const Color(0xFF1E2429) : Colors.white,
       primaryColor: isDarkTheme ? Colors.black : const Color(0xffC28A6C),
       accentColor: const Color(0xffC28A6C),
+      errorColor: Colors.white,
       backgroundColor: isDarkTheme ? Colors.grey.shade700 : Colors.white,
       indicatorColor:
           isDarkTheme ? const Color(0xff0E1D36) : const Color(0xffCBDCF8),
