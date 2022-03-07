@@ -62,38 +62,74 @@ class _HomePageState extends State<HomePage> {
                   style: titleTextStyle(context: context),
                 ),
               ),
+              // Padding(
+              //   padding: const EdgeInsets.all(12.0),
+              //   child: SizedBox(
+              //     width: MediaQuery.of(context).size.width - 30,
+              //     height: 200,
+              //     child: GoogleMap(
+              //       onMapCreated: onMapCreated,
+              //       initialCameraPosition: const CameraPosition(
+              //         target: LatLng(51.517450, -0.226575),
+              //         zoom: 15,
+              //       ),
+              //       buildingsEnabled: false,
+              //       mapToolbarEnabled: false,
+              //       markers: _markers,
+              //     ),
+              //   ),
+              // ),
               Neumorphic(
+                margin: EdgeInsets.all(8),
                 style: NeumorphicStyle(
-                  shape: NeumorphicShape.concave,
-                  boxShape:
-                      NeumorphicBoxShape.roundRect(BorderRadius.circular(20)),
-                  depth: 8,
-                  lightSource: LightSource.topLeft,
-                  // color: Colors.grey
-                ),
+                    color: Colors.white, shape: NeumorphicShape.concave),
                 // shape: RoundedRectangleBorder(
                 //     borderRadius: BorderRadius.circular(20)),
-                child: Padding(
-                  padding: const EdgeInsets.all(12.0),
-                  child: SizedBox(
-                    width: MediaQuery.of(context).size.width - 30,
-                    height: 200,
-                    child: GoogleMap(
-                      onMapCreated: onMapCreated,
-                      initialCameraPosition: const CameraPosition(
-                        target: LatLng(51.517450, -0.226575),
-                        zoom: 15,
-                      ),
-                      buildingsEnabled: false,
-                      mapToolbarEnabled: false,
-                      markers: _markers,
+                child: Column(
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          'Julie',
+                          style: titleTextStyle(context: context),
+                        ),
+                        Row(
+                          children: const [
+                            Text('Amount Requested:'),
+                            Text('\$95')
+                          ],
+                        ),
+                      ],
                     ),
-                  ),
+                    Image.network(
+                      'https://developers.google.com/maps/images/landing/hero_geocoding_api.png',
+                      fit: BoxFit.fill,
+                      width: double.infinity,
+                      height: 180,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          'Category',
+                          style: titleTextStyle(context: context),
+                        ),
+                        Text(
+                          'Food',
+                          style: titleTextStyle(context: context),
+                        ),
+                      ],
+                    )
+                  ],
                 ),
               ),
-              Card(
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(20)),
+              Neumorphic(
+                margin: EdgeInsets.all(8),
+                style: NeumorphicStyle(
+                    color: Colors.white, shape: NeumorphicShape.concave),
+                // shape: RoundedRectangleBorder(
+                //     borderRadius: BorderRadius.circular(20)),
                 child: Padding(
                   padding: const EdgeInsets.all(24.0),
                   child: Column(
