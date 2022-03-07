@@ -13,7 +13,7 @@ class _RequestPaymentPageState extends State<RequestPaymentPage> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: Colors.red,
+        backgroundColor: Colors.transparent,
         body: SingleChildScrollView(
           physics: NeverScrollableScrollPhysics(),
           child: Column(
@@ -23,13 +23,13 @@ class _RequestPaymentPageState extends State<RequestPaymentPage> {
               Container(
                 height: MediaQuery.of(context).size.height * 0.3,
                 child: Column(
-                  children: [
-                    const CircleAvatar(
+                  children: const [
+                    CircleAvatar(
                       radius: 100,
                       backgroundImage: CachedNetworkImageProvider(
                           'https://engineering.unl.edu/images/staff/Kayla-Person.jpg'),
                     ),
-                    const Text('MRS. Ellie Johnson')
+                    Text('MRS. Ellie Johnson')
                   ],
                 ),
               ),

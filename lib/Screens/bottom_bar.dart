@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:silend/Screens/home_page.dart';
 import 'package:silend/Screens/request_payment.dart';
 import 'package:silend/Screens/transactions_screens.dart';
+import 'package:silend/Screens/uploadRequest.dart';
 import 'package:silend/Screens/user_info.dart';
 import 'package:silend/Services/user_state.dart';
 
@@ -27,9 +28,9 @@ class _BottomBarScreenState extends State<BottomBarScreen> {
       HomePage(),
       const TransactionsHistoryPage(),
       const RequestPaymentPage(),
-      UserInfoScreen(),
+      // UserInfoScreen(),
       UserNSearch(),
-      ChatLists(),
+      UploadRequestScreen()
     ];
     //
     super.initState();

@@ -9,15 +9,19 @@ import '../DatabaseMethods/database.dart';
 class UserState extends StatelessWidget {
   List<PageViewModel> listPagesViewModel = [
     PageViewModel(
-      title: "Hello",
-      body:
-          "A new way to pay it forward. Give Anonymously Receive to pay it forward. Give Anonymously Receive Silently.A new way to pay it forward. Give Anonymously Receive Silently. A new way to pay it forward. Give Anonymously Receive Silently.",
-      image: Center(
-        child: Image.asset("assets/images/brittblack120.png", height: 175.0),
-      ),
-    ),
+        // decoration: PageDecoration(
+        // ),
+        title: "Hello",
+        body:
+            "A new way to pay it forward. Give Anonymously Receive to pay it forward. Give Anonymously Receive Silently.A new way to pay it forward. Give Anonymously Receive Silently. A new way to pay it forward. Give Anonymously Receive Silently.",
+        image: Center(
+          child: Image.asset("assets/images/brittblack120.png", height: 175.0),
+        ),
+        reverse: true),
     PageViewModel(
-      title: 'asd',
+      // decoration: PageDecoration(pageColor: Colors.grey),
+      title: '',
+      reverse: true,
       body:
           "A new way to pay it forward. Give Anonymously Receive to pay it forward. Give Anonymously Receive Silently.A new way to pay it forward. Give Anonymously Receive Silently. A new way to pay it forward. Give Anonymously Receive Silently.",
       image: Center(
@@ -25,11 +29,13 @@ class UserState extends StatelessWidget {
       ),
     ),
     PageViewModel(
-      title: 'Solution',
-      image: Center(
-        child: Image.asset("assets/images/Layer 2.0.png", height: 175.0),
-      ),
-    )
+        title: 'Solution',
+        // decoration: PageDecoration(pageColor: Colors.grey),
+        image: Center(
+          child: Image.asset("assets/images/Layer 2.0.png", height: 175.0),
+        ),
+        reverse: true,
+        body: 'We have found the solution')
   ];
   @override
   Widget build(BuildContext context) {
@@ -59,6 +65,7 @@ class UserState extends StatelessWidget {
                   // IntroductionAuthScreen();
                   IntroductionScreen(
                 pages: listPagesViewModel,
+                globalBackgroundColor: Colors.blueGrey,
                 showSkipButton: true,
                 skip: const Text("Skip"),
                 done: const Text("Done",
@@ -68,6 +75,7 @@ class UserState extends StatelessWidget {
                     builder: (context) => WelcomescreenWidget(),
                   ));
                 },
+                showNextButton: false,
                 baseBtnStyle: TextButton.styleFrom(
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(25.0),
