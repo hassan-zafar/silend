@@ -10,15 +10,17 @@ import '../Components/custom_toast.dart';
 import 'local_database.dart';
 
 class AuthMethod {
-  static final FirebaseAuth _auth = FirebaseAuth.instance;
-
+  FirebaseAuth? auth = FirebaseAuth.instance;
+  AuthMethod({this.auth});
   Future<User?> getCurrentUser() async {
-    return _auth.currentUser;
+    return auth!.currentUser;
   }
+
+  Stream<User?> get user => auth!.authStateChanges();
 
   Future<bool> loginAnonymosly() async {
     try {
-      await _auth.signInAnonymously();
+      await auth!.signInAnonymously();
       String date = DateTime.now().toString();
       DateTime dateparse = DateTime.parse(date);
       String formattedDate =
@@ -56,7 +58,7 @@ class AuthMethod {
           DateTime dateparse = DateTime.parse(date);
           String formattedDate =
               '${dateparse.day}-${dateparse.month}-${dateparse.year}';
-          final UserCredential authResult = await _auth.signInWithCredential(
+          final UserCredential authResult = await auth!.signInWithCredential(
               GoogleAuthProvider.credential(
                   idToken: googleAuth.idToken,
                   accessToken: googleAuth.accessToken));
@@ -104,7 +106,7 @@ class AuthMethod {
     required String password,
   }) async {
     try {
-      final UserCredential result = await _auth
+      final UserCredential result = await auth!
           .createUserWithEmailAndPassword(
         email: email.toLowerCase().trim(),
         password: password.trim(),
@@ -121,9 +123,12 @@ class AuthMethod {
     }
   }
 
-  Future<User?> loginWithEmailAndPassword(String email, String password) async {
+  Future<User?> loginWithEmailAndPassword(
+    String email,
+    String password,
+  ) async {
     try {
-      final UserCredential result = await _auth
+      final UserCredential result = await auth!
           .signInWithEmailAndPassword(
         email: email.trim(),
         password: password.trim(),
@@ -144,8 +149,16 @@ class AuthMethod {
     }
   }
 
-  Future<void> signOut() async {
-    LocalDB().signout();
-    await _auth.signOut();
+  Future<String?> signOut() async {
+    try {
+      await auth!.signOut();
+      LocalDB().signout();
+
+      return "Success";
+    } on FirebaseAuthException catch (e) {
+      return e.message;
+    } catch (e) {
+      rethrow;
+    }
   }
 }

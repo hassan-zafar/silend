@@ -65,7 +65,7 @@ class _UserInfoScreenState extends State<UserInfoScreen> {
                                 duration: const Duration(milliseconds: 300),
                                 opacity: top <= 110.0 ? 1.0 : 0,
                                 child: Row(
-                                  children:  [
+                                  children: [
                                     const SizedBox(
                                       width: 12,
                                     ),
@@ -92,7 +92,9 @@ class _UserInfoScreenState extends State<UserInfoScreen> {
                                     ),
                                     Text(
                                       // 'top.toString()',
-                                      currentUser!.name! ?? 'Guest',
+                                      currentUser!.name! == null
+                                          ? 'Guest'
+                                          : currentUser!.name!,
                                       style: const TextStyle(
                                           fontSize: 20.0, color: Colors.white),
                                     ),
