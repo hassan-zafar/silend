@@ -10,7 +10,8 @@ import '../Components/custom_toast.dart';
 import 'local_database.dart';
 
 class AuthMethod {
-  FirebaseAuth? auth = FirebaseAuth.instance;
+  FirebaseAuth? auth;
+  // = FirebaseAuth.instance;
   AuthMethod({this.auth});
   Future<User?> getCurrentUser() async {
     return auth!.currentUser;
