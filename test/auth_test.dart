@@ -23,7 +23,7 @@ final MockUser _mockUser = MockUser();
 
 // class MockFirestore extends Mock implements FirebaseFirestore {}
 
-@GenerateMocks([FirebaseFirestore, FirebaseAuth, User])
+@GenerateMocks([FirebaseFirestore, FirebaseAuth, User, Firebase])
 void main() async {
   MockFirebaseFirestore instance;
   setupFirebaseAuthMocks();
@@ -44,7 +44,7 @@ void main() async {
     when(
       mockFirebaseAuth.createUserWithEmailAndPassword(
           email: "tadas@gmail.com", password: "123456"),
-    ).thenReturn(MockFirebaseAuth().getRedirectResult());
+    ).thenReturn(MockFirebaseAuth().signInAnonymously());
     // thenAnswer((realInvocation) {
     //   return MockFirebaseAuth().getRedirectResult();
     // });

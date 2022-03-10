@@ -521,3 +521,12 @@ class MockUser extends _i1.Mock implements _i6.User {
           returnValue: Future<void>.value(),
           returnValueForMissingStub: Future<void>.value()) as _i7.Future<void>);
 }
+
+/// A class which mocks [Firebase].
+///
+/// See the documentation for Mockito's code generation for more information.
+class MockFirebase extends _i1.Mock implements _i2.Firebase {
+  MockFirebase() {
+    _i1.throwOnMissingStub(this);
+  }
+}
