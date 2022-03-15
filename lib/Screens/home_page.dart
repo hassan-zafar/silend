@@ -28,14 +28,14 @@ class _HomePageState extends State<HomePage> {
       setState(() {
         _markers.add(
           Marker(
-              markerId: const MarkerId("0"),
-              position: const LatLng(51.517450, -0.226575),
-              icon: _markerIcon
-              // infoWindow: InfoWindow(
-              //   title: widget.restaurantDetails.restaurantName,
-              //   snippet: widget.restaurantDetails.restaurantAddress,
-              // ),
-              ),
+            markerId: const MarkerId("0"),
+            position: const LatLng(51.517450, -0.226575),
+            // icon: _markerIcon
+            // infoWindow: InfoWindow(
+            //   title: widget.restaurantDetails.restaurantName,
+            //   snippet: widget.restaurantDetails.restaurantAddress,
+            // ),
+          ),
         );
       });
     });
@@ -62,27 +62,32 @@ class _HomePageState extends State<HomePage> {
                   style: titleTextStyle(context: context),
                 ),
               ),
-              // Padding(
-              //   padding: const EdgeInsets.all(12.0),
-              //   child: SizedBox(
-              //     width: MediaQuery.of(context).size.width - 30,
-              //     height: 200,
-              //     child: GoogleMap(
-              //       onMapCreated: onMapCreated,
-              //       initialCameraPosition: const CameraPosition(
-              //         target: LatLng(51.517450, -0.226575),
-              //         zoom: 15,
-              //       ),
-              //       buildingsEnabled: false,
-              //       mapToolbarEnabled: false,
-              //       markers: _markers,
-              //     ),
-              //   ),
-              // ),
+              Padding(
+                padding: const EdgeInsets.all(12.0),
+                child: SizedBox(
+                  width: MediaQuery.of(context).size.width - 30,
+                  height: 200,
+                  child: GoogleMap(
+                    onMapCreated: onMapCreated,
+                    initialCameraPosition: const CameraPosition(
+                      target: LatLng(51.517450, -0.226575),
+                      zoom: 15,
+                    ),
+                    buildingsEnabled: false,
+                    mapToolbarEnabled: false,
+                    markers: _markers,
+                  ),
+                ),
+              ),
               Neumorphic(
-                margin: EdgeInsets.all(8),
-                style: NeumorphicStyle(
-                    color: Colors.white, shape: NeumorphicShape.concave),
+                margin: const EdgeInsets.all(8), padding: EdgeInsets.all(16),
+                style: const NeumorphicStyle(
+                    color: Colors.white,
+                    shape: NeumorphicShape.convex,
+                    surfaceIntensity: 12,
+                    lightSource: LightSource.top,
+                    intensity: 12,
+                    depth: -112),
                 // shape: RoundedRectangleBorder(
                 //     borderRadius: BorderRadius.circular(20)),
                 child: Column(
@@ -94,39 +99,65 @@ class _HomePageState extends State<HomePage> {
                           'Julie',
                           style: titleTextStyle(context: context),
                         ),
-                        Row(
-                          children: const [
-                            Text('Amount Requested:'),
-                            Text('\$95')
-                          ],
-                        ),
                       ],
                     ),
-                    Image.network(
-                      'https://developers.google.com/maps/images/landing/hero_geocoding_api.png',
-                      fit: BoxFit.fill,
-                      width: double.infinity,
-                      height: 180,
+                    Neumorphic(
+                      margin: const EdgeInsets.all(8),
+                      style: neumorphicStyle,
+                      padding: const EdgeInsets.all(8),
+                      child: Row(
+                        children: [
+                          const Icon(
+                            Icons.wb_sunny_outlined,
+                            color: Colors.blue,
+                          ),
+                          const Text('Request Amount',
+                              style:
+                                  TextStyle(fontSize: 22, color: Colors.black)),
+                          Neumorphic(
+                              margin:
+                                  const EdgeInsets.only(left: 20, right: 20),
+                              padding:
+                                  const EdgeInsets.only(left: 20, right: 20),
+                              style: neumorphicStyle,
+                              child: Text(
+                                '\$60',
+                                style: normalTextStyle,
+                              ))
+                        ],
+                      ),
                     ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          'Category',
-                          style: titleTextStyle(context: context),
-                        ),
-                        Text(
-                          'Food',
-                          style: titleTextStyle(context: context),
-                        ),
-                      ],
-                    )
+                    Neumorphic(
+                      margin: const EdgeInsets.all(8),
+                      style: neumorphicStyle,
+                      padding: const EdgeInsets.all(8),
+                      child: Row(
+                        children: [
+                          const Icon(
+                            Icons.wb_sunny_outlined,
+                            color: Colors.blue,
+                          ),
+                          const Text('Request Category',
+                              style:
+                                  TextStyle(fontSize: 22, color: Colors.black)),
+                          Neumorphic(
+                            margin: const EdgeInsets.only(left: 20, right: 20),
+                            padding: const EdgeInsets.only(left: 20, right: 20),
+                            style: neumorphicStyle,
+                            child: Text(
+                              '\$50',
+                              style: normalTextStyle,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
                   ],
                 ),
               ),
               Neumorphic(
-                margin: EdgeInsets.all(8),
-                style: NeumorphicStyle(
+                margin: const EdgeInsets.all(8),
+                style: const NeumorphicStyle(
                     color: Colors.white, shape: NeumorphicShape.concave),
                 // shape: RoundedRectangleBorder(
                 //     borderRadius: BorderRadius.circular(20)),

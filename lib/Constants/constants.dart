@@ -8,3 +8,4 @@ String logo = 'assets/images/Logo_white.png';
 
 NeumorphicStyle neumorphicStyle =
     const NeumorphicStyle(color: Colors.white, shape: NeumorphicShape.concave);
+TextStyle normalTextStyle = const TextStyle(color: Colors.black);
